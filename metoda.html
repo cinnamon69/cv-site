@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="metoda.css">
+    <title>Metoda "Divide et Empera"</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CV // Slutu Stanislav</title>
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <ul>
+                <a href="exercitii.html">
+                    <li>Exercitii</li>
+                </a>
+                <li class="nr">Metoda "Divide et Empera"</li>
+                <a href="main.html">
+                    <li>CV</li>
+                </a>
+            </ul>
+        </nav>
+        <div class="slide1">
+            <h1>Metoda "Divide et Empera"</h1>
+            <p>de Slutu Stanislav</p>
+            <img src="images/filip.png" class="filip">
+            <img src="images/cpp.png" class="cpp">
+        </div>
+        <div class="slide1">
+            <h1>Ce este "Divide et Impera"? (Teorie)</h1>
+            <p class="hz">
+                Concept: Este o tehnică de programare bazată pe descompunerea unei probleme complexe în subprobleme mai
+                simple, rezolvarea acestora și combinarea rezultatelor.
+
+                Cei 3 pași principali:
+
+                Divide (Împarte): Problema inițială este împărțită în două sau mai multe subprobleme din același pachet
+                (de același tip).
+
+                Impera (Stăpânește / Rezolvă): Se rezolvă recursiv subproblemele. Dacă s-a ajuns la o dimensiune destul
+                de mică (cazul de bază), se rezolvă direct.
+
+                Combină: Se unesc soluțiile subproblemelor pentru a obține rezultatul final al problemei mari.</p>
+        </div>
+    </body>
+    <div class="slide1">
+        <h1>Exemplu: Cautare binara</h1>
+        <pre>
+int cautareBinara(int arr[], int stanga, int dreapta, int x) {
+    if (dreapta >= stanga) {
+        int mijloc = stanga + (dreapta - stanga) / 2;
+        
+        // Elementul a fost găsit la mijloc
+        if (arr[mijloc] == x) return mijloc;
+        
+        // Dacă elementul este mai mic, căutăm în stânga
+        if (arr[mijloc] > x) 
+            return cautareBinara(arr, stanga, mijloc - 1, x);
+            
+        // Altfel, căutăm în dreapta
+        return cautareBinara(arr, mijloc + 1, dreapta, x);
+    }
+    return -1; // Elementul nu există
+}</pre>
+    </div>
+<div class="slide1"><h1 class="hz1">Unde se mai folosește cel mai des această metodă în C++</h1><p class="hz">
+
+Algoritmul Merge Sort (Sortare prin interclasare): Împarte vectorul în jumătăți, le sortează recursiv și apoi le interclasează ordonat.
+
+Algoritmul Quick Sort (Sortare rapidă): Alege un pivot și împarte vectorul în funcție de elementele mai mici sau mai mari decât el.
+
+Turnurile din Hanoi: Rezolvarea jocului prin mutarea recursivă a sub-turnurilor de discuri.</p></div>
+<div class="slide1">
+<div class="slide1 slide-text">
+    <h3>Avantaje și Dezavantaje</h3>
+
+    <p><strong>✔ Avantaje:</strong></p>
+    <ul>
+        <li>Reduce dramatic timpul de execuție pentru probleme mari (de exemplu, de la o sortare simplă O(n²) la un algoritm eficient ca Merge Sort O(n log n)).</li>
+        <li>Este perfectă pentru procesarea paralelă (subproblemele pot fi rulate în același timp pe procesoare diferite).</li>
+    </ul>
+
+    <p><strong>✖ Dezavantaje:</strong></p>
+    <ul>
+        <li>Consumă multă memorie din cauza apelurilor recursive repetate (stiva de execuție / Call Stack se poate umple repede dacă vectorul e uriaș).</li>
+        <li>Nu este eficientă dacă subproblemele se suprapun (în cazuri din astea se folosește Programarea Dinamică).</li>
+    </ul>
+</div>    
+</div>
+    </html>
